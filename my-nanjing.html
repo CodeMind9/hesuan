@@ -879,18 +879,28 @@
       const ma = document.querySelector(
         "body > div > div.info-container > div.qr-code-container > img"
       );
-      let random_index = 1;
-      if(maType === "黄"){
-        random_index = 0;
-      }else if(maType !== "绿"){
-        maType = window.prompt("绿码还是黄码?(输入“绿”或“黄”)");
-      }
+      let random_index = null;
+      judgeHuang(maType);
       ma.setAttribute("src", arr[random_index]);
       if (random_index === 0) {
         const text = document.querySelector(
           "body > div > div.blue-back > div.item.item1 > div"
         );
         text.innerHTML = "苏康码·黄码";
+      }
+
+      function judgeHuang(maType) {
+        if (maType === "黄") {
+          random_index = 0;
+          random_index = 0;
+          return 1;
+        } else if (maType !== "绿") {
+          maType = window.prompt("绿码还是黄码?(输入“绿”或“黄”)");
+        } else if (maType === "绿") {
+          random_index = 1;
+          return 2;
+        }
+        judgeHuang(maType);
       }
       const time = document.querySelector(".info-container .time");
       const nameDom = document.querySelector(".item2");
