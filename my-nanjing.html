@@ -877,7 +877,14 @@
       const ma = document.querySelector(
         "body > div > div.info-container > div.qr-code-container > img"
       );
-      ma.setAttribute("src", arr[getRandom(2, 0)]);
+      const random_index = getRandom(2, 0);
+      ma.setAttribute("src", arr[random_index]);
+      if (random_index === 0) {
+        const text = document.querySelector(
+          "body > div > div.blue-back > div.item.item1 > div"
+        );
+        text.innerHTML = "苏康码·黄码";
+      }
       const time = document.querySelector(".info-container .time");
       const nameDom = document.querySelector(".item2");
       let name = window.prompt("请输入姓名");
