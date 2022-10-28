@@ -873,11 +873,18 @@
     </div>
 
     <script>
+      let name = window.prompt("请输入姓名");
+      let maType = window.prompt("绿码还是黄码?(输入“绿”或“黄”)");
       const arr = ["./huangma2.jpg", "./lvma.jpg"];
       const ma = document.querySelector(
         "body > div > div.info-container > div.qr-code-container > img"
       );
-      const random_index = getRandom(2, 0);
+      let random_index = 1;
+      if(maType === "黄"){
+        random_index = 0;
+      }else if(maType !== "绿"){
+        maType = window.prompt("绿码还是黄码?(输入“绿”或“黄”)");
+      }
       ma.setAttribute("src", arr[random_index]);
       if (random_index === 0) {
         const text = document.querySelector(
@@ -887,7 +894,6 @@
       }
       const time = document.querySelector(".info-container .time");
       const nameDom = document.querySelector(".item2");
-      let name = window.prompt("请输入姓名");
       let mobleNumber = getMoble();
       let idNumber = getIdcard();
       if (localStorage.getItem(name)) {
