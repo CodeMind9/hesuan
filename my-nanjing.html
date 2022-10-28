@@ -955,8 +955,8 @@
       nameBottom.innerHTML = name;
 
       const str = `${currentTime.getFullYear()}/${currentTime.getMonth() + 1}/${
-        currentTime.getDate() - 1
-      } ${getRandom(20, 15)}:${getRandom(6, 0)}2:45`;
+        currentTime.getDate()
+      } ${getRandom(15, 10)}:${getRandom(6, 0)}2:45`;
       const caiyangTime = new Date(str);
       if (!parseTime(caiyangTime.getTime())) {
         alert("重信来");
