@@ -946,7 +946,7 @@
       ).slice(14, 16)}`;
       name2.innerHTML = parseTime(jianceTime);
       nums.forEach((item) => {
-        item.innerHTML = getRandom();
+        item.innerHTML = getRandom(10, 1);
       });
       headTime.innerHTML = `${parseTime(curTimeTemp).slice(10, 13)}:${parseTime(
         curTimeTemp
