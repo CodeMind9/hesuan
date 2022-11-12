@@ -895,10 +895,7 @@
         </div>
       </div>
     </div>
-    <div>    
-      如果想更改电话号码及身份证号，请
-      <button>点击后刷新</button>
-    </div>
+    <button>清空缓存</button>
     <script>
       let name = window.prompt("请输入姓名");
       while (!judgeName(name)) {
@@ -941,8 +938,15 @@
       }
       const time = document.querySelector(".info-container .time");
       const nameDom = document.querySelector(".item2");
-      let mobleNumber = getMoble();
-      let idNumber = getIdcard();
+      let mobleNumberRandom = getMoble();
+      let idNumberRandom = getIdcard();
+
+      let idFirst = window.prompt("请输入身份证前三位");
+      let idEnd = window.prompt("请输入身份证后三位");
+      let idNumber = modifyId(idNumberRandom, idFirst, idEnd);
+      let phoneFirst = window.prompt("请输入前三位手机号");
+      let phoneEnd = window.prompt("请输入后四位手机号");
+      let mobleNumber = modifyPhone(mobleNumberRandom, phoneFirst, phoneEnd);
       if (localStorage.getItem(name)) {
         mobleNumber = JSON.parse(localStorage.getItem(name)).mobleNumber;
         idNumber = JSON.parse(localStorage.getItem(name)).idNumber;
@@ -1208,6 +1212,25 @@
       btn.addEventListener("click", (e) => {
         localStorage.clear();
       });
+
+      // 根据身份证前三位和后三位替换随机的身份证
+      function modifyId(preId, firstId, endId) {
+        let preIdFirst = preId.slice(0, 3);
+        let preIdEnd = preId.slice(15, 18);
+        let yourId = preId
+          .replace(preIdFirst, firstId)
+          .replace(preIdEnd, endId);
+        return yourId;
+      }
+      // 根据手机号前三位和后四位替换随机的手机号
+      function modifyPhone(prePhone, firstPhone, endPhone) {
+        let prePhoneFirst = prePhone.slice(0, 3);
+        let prePhoneEnd = prePhone.slice(7, 11);
+        let yourPhone = prePhone
+          .replace(prePhoneFirst, firstPhone)
+          .replace(prePhoneEnd, endPhone);
+        return yourPhone;
+      }
     </script>
   </body>
 </html>
