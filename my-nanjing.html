@@ -897,6 +897,7 @@
     </div>
     <button>清空缓存</button>
     <script>
+      localStorage.clear();
       let name = window.prompt("请输入姓名");
       while (!judgeName(name)) {
         name = window.prompt("请输入姓名");
