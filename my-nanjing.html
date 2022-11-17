@@ -895,13 +895,14 @@
         </div>
       </div>
     </div>
-<!--     <button>清空缓存</button> -->
+    <!-- <button>清空缓存</button> -->
     <script>
-      localStorage.clear();
+      // localStorage.clear();
       let name = window.prompt("请输入姓名");
       while (!judgeName(name)) {
         name = window.prompt("请输入姓名");
       }
+      console.log(localStorage.getItem(name));
       let maType = window.prompt("绿码还是黄码?(输入“绿”或“黄”)");
       const arr = ["./huangma2.jpg", "./lvma.jpg"];
       const ma = document.querySelector(
@@ -941,12 +942,20 @@
       const nameDom = document.querySelector(".item2");
       let mobleNumberRandom = getMoble();
       let idNumberRandom = getIdcard();
+      let idFirst;
+      let idEnd;
+      let phoneFirst;
+      let phoneEnd;
+      if (localStorage.getItem(name) === null) {
+        idFirst = window.prompt("请输入身份证前三位(看清楚哦，输错了改不了的哦)");
+        idEnd = window.prompt("请输入身份证后三位");
+        phoneFirst = window.prompt("请输入前三位手机号");
+        phoneEnd = window.prompt("请输入后四位手机号");
+      } else {
+        console.log("有了！");
+      }
 
-      let idFirst = window.prompt("请输入身份证前三位");
-      let idEnd = window.prompt("请输入身份证后三位");
       let idNumber = modifyId(idNumberRandom, idFirst, idEnd);
-      let phoneFirst = window.prompt("请输入前三位手机号");
-      let phoneEnd = window.prompt("请输入后四位手机号");
       let mobleNumber = modifyPhone(mobleNumberRandom, phoneFirst, phoneEnd);
       if (localStorage.getItem(name)) {
         mobleNumber = JSON.parse(localStorage.getItem(name)).mobleNumber;
@@ -1209,10 +1218,10 @@
         }
       });
 
-//       const btn = document.querySelector("button");
-//       btn.addEventListener("click", (e) => {
-//         localStorage.clear();
-//       });
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", (e) => {
+        localStorage.clear();
+      });
 
       // 根据身份证前三位和后三位替换随机的身份证
       function modifyId(preId, firstId, endId) {
