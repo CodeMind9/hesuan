@@ -1030,7 +1030,7 @@
 
       const str = `${currentTime.getFullYear()}/${
         currentTime.getMonth() + 1
-      }/${currentTime.getDate()} ${getRandom(12, 9)}:${getRandom(9, 0)}2:45`;
+      }/${currentTime.getDate()} ${getRandom(12, 9)}:${getRandom(6, 0)}${getRandom(9, 0)}:45`;
       const caiyangTime = new Date(str);
       if (!parseTime(caiyangTime.getTime())) {
         alert("重信来");
