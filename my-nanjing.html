@@ -1056,8 +1056,8 @@
       const min2 = document.querySelector(
         "body > div > div.fixed-container > div.info1 > div.time-countdown-72 > div > span.min"
       );
-      hour1.innerHTML = 48 - caiyangPastHour;
-      hour2.innerHTML = 72 - caiyangPastHour;
+      hour1.innerHTML = 48 - caiyangPastHour - 1;
+      hour2.innerHTML = 72 - caiyangPastHour - 1;
       min1.innerHTML = String(60 - caiyangPastMin).padStart(2, "0");
       min2.innerHTML = min1.innerHTML;
       function parseTime(time, cFormat) {
