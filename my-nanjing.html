@@ -409,7 +409,7 @@
         top: 0px;
         font-size: 21px;
       }
-      .container .fixed-container .info1 .time-countdown-48 .timeIcon {
+      .container .fixed-container .info1 .time-countdown-24 .timeIcon {
         position: absolute;
         left: 115px;
         top: 0px;
@@ -417,10 +417,38 @@
         font-size: 24px;
         font-size: 25px;
       }
-      .container .fixed-container .info1 .time-countdown-48 .text1 {
+      .container .fixed-container .info1 .time-countdown-24 .text1 {
         position: absolute;
         right: 10px;
         top: 0;
+        color: #fcf15e;
+        font-size: 17px;
+      }
+      .container .fixed-container .info1 .time-countdown-24 .text1 span.hour {
+        font-size: 23px;
+        font-weight: 800;
+        margin-left: 5px;
+        vertical-align: -2px;
+        padding: 1px;
+      }
+      .container .fixed-container .info1 .time-countdown-24 .text1 span.min {
+        font-size: 23px;
+        font-weight: 800;
+        vertical-align: -2px;
+        padding: 1px;
+      }
+      .container .fixed-container .info1 .time-countdown-48 .timeIcon {
+        position: absolute;
+        left: 115px;
+        top: 26px;
+        color: #fcf15e;
+        font-size: 24px;
+        font-size: 25px;
+      }
+      .container .fixed-container .info1 .time-countdown-48 .text1 {
+        position: absolute;
+        right: 10px;
+        top: 26px;
         color: #fcf15e;
         font-size: 17px;
       }
@@ -441,14 +469,14 @@
       .container .fixed-container .info1 .time-countdown-72 .timeIcon {
         position: absolute;
         left: 115px;
-        top: 26px;
+        top: 52px;
         color: #fcf15e;
         font-size: 25px;
       }
       .container .fixed-container .info1 .time-countdown-72 .text1 {
         position: absolute;
         right: 10px;
-        top: 26px;
+        top: 52px;
         color: #fcf15e;
         font-size: 17px;
       }
@@ -470,7 +498,7 @@
         color: #fff;
         position: absolute;
         left: 10px;
-        top: 90px;
+        top: 116px;
         font-size: 21px;
       }
       .container .fixed-container .info2 .id {
@@ -478,7 +506,7 @@
         font-size: 20px;
         position: absolute;
         right: 10px;
-        top: 90px;
+        top: 116px;
       }
       .container .fixed-container .info3 .checkIcon {
         font-size: 20px;
@@ -486,26 +514,26 @@
         overflow: hidden;
         position: absolute;
         left: 10px;
-        top: 125px;
+        top: 151px;
       }
       .container .fixed-container .info3 .text1 {
         color: #fff;
         font-size: 20px;
         position: absolute;
         left: 35px;
-        top: 120px;
+        top: 146px;
       }
       .container .fixed-container .info3 .time {
         color: #fff;
         font-size: 20px;
         position: absolute;
         right: 10px;
-        top: 120px;
+        top: 146px;
       }
       .container .fixed-container .source {
         position: absolute;
         left: 10px;
-        top: 153px;
+        top: 179px;
         color: #fff;
         width: 385px;
         font-size: 11.5px;
@@ -806,6 +834,32 @@
         </svg>
         <div class="info1">
           <span class="hesuanjiance">核酸检测</span>
+          <div class="time-countdown-24">
+            <svg
+              class="timeIcon"
+              style="
+                width: 1em;
+                height: 1em;
+                vertical-align: middle;
+                fill: currentColor;
+                overflow: hidden;
+              "
+              viewBox="0 0 1024 1024"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              p-id="5666"
+            >
+              <path
+                d="M512 64C264.96 64 64 264.96 64 512s200.96 448 448 448 448-200.96 448-448S759.04 64 512 64zM512 895.712c-211.584 0-383.712-172.16-383.712-383.712C128.288 300.416 300.416 128.288 512 128.288c211.552 0 383.712 172.128 383.712 383.712C895.712 723.552 723.552 895.712 512 895.712zM671.968 512 512 512 512 288.064c0-17.76-14.24-32.128-32-32.128s-32 14.4-32 32.128L448 544c0 17.76 14.272 32 32 32l191.968 0c17.76 0 32.128-14.24 32.128-32S689.728 512 671.968 512z"
+                p-id="5667"
+              ></path>
+            </svg>
+            <div class="text1">
+              距24小时到期还剩<span class="hour">24</span>小时<span class="min"
+                >50</span
+              >分
+            </div>
+          </div>
           <div class="time-countdown-48">
             <svg
               class="timeIcon"
@@ -861,7 +915,7 @@
           </div>
         </div>
         <div class="info2">
-          <span class="name">刘志浩</span>
+          <span class="name">阿斯顿撒</span>
           <span class="id"
             ><span class="idhead3"></span>******<span class="idfoot3"></span
           ></span>
@@ -902,7 +956,7 @@
       while (!judgeName(name)) {
         name = window.prompt("请输入姓名");
       }
-      console.log(localStorage.getItem(name));
+      // console.log(localStorage.getItem(name));
       let maType = window.prompt("绿码还是黄码?(输入“绿”或“黄”)");
       const arr = ["./huangma2.jpg", "./lvma.jpg"];
       const ma = document.querySelector(
@@ -947,7 +1001,9 @@
       let phoneFirst;
       let phoneEnd;
       if (localStorage.getItem(name) === null) {
-        idFirst = window.prompt("请输入身份证前三位(看清楚哦，输错了改不了的哦)");
+        idFirst = window.prompt(
+          "请输入身份证前三位(看清楚哦，输错了改不了的哦)"
+        );
         idEnd = window.prompt("请输入身份证后三位");
         phoneFirst = window.prompt("请输入前三位手机号");
         phoneEnd = window.prompt("请输入后四位手机号");
@@ -1030,7 +1086,10 @@
 
       const str = `${currentTime.getFullYear()}/${
         currentTime.getMonth() + 1
-      }/${currentTime.getDate()} ${getRandom(12, 9)}:${getRandom(6, 0)}${getRandom(9, 0)}:45`;
+      }/${currentTime.getDate()} ${getRandom(12, 9)}:${getRandom(
+        6,
+        0
+      )}${getRandom(9, 0)}:45`;
       const caiyangTime = new Date(str);
       if (!parseTime(caiyangTime.getTime())) {
         alert("重信来");
@@ -1050,16 +1109,24 @@
       const hour2 = document.querySelector(
         "body > div > div.fixed-container > div.info1 > div.time-countdown-72 > div > span.hour"
       );
+      const hour3 = document.querySelector(
+        "body > div > div.fixed-container > div.info1 > div.time-countdown-24 > div > span.hour"
+      );
       const min1 = document.querySelector(
         "body > div > div.fixed-container > div.info1 > div.time-countdown-48 > div > span.min"
       );
       const min2 = document.querySelector(
         "body > div > div.fixed-container > div.info1 > div.time-countdown-72 > div > span.min"
       );
+      const min3 = document.querySelector(
+        "body > div > div.fixed-container > div.info1 > div.time-countdown-24 > div > span.min"
+      );
       hour1.innerHTML = 48 - caiyangPastHour - 1;
       hour2.innerHTML = 72 - caiyangPastHour - 1;
+      hour3.innerHTML = 24 - caiyangPastHour - 1;
       min1.innerHTML = String(60 - caiyangPastMin).padStart(2, "0");
       min2.innerHTML = min1.innerHTML;
+      min3.innerHTML = min1.innerHTML;
       function parseTime(time, cFormat) {
         if (arguments.length === 0 || !time) {
           return null;
@@ -1208,13 +1275,12 @@
       );
       const fixedContainer = document.querySelector("#idid");
       arrowDown.addEventListener("click", function (e) {
-        console.log(typeof arrowDown.style.transform);
         if (arrowDown.style.transform === "rotateZ(180deg)") {
           arrowDown.style.transform = "rotateZ(0deg)";
           fixedContainer.style.transform = "translateY(0px)";
         } else {
           arrowDown.style.transform = "rotateZ(180deg)";
-          fixedContainer.style.transform = "translateY(190px)";
+          fixedContainer.style.transform = "translateY(195px)";
         }
       });
 
